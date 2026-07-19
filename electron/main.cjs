@@ -44,7 +44,7 @@ mkdirSync(dataPath, { recursive: true });
 mkdirSync(userDataPath, { recursive: true });
 mkdirSync(sessionDataPath, { recursive: true });
 seedDataFile("settings.json");
-seedDataFile("prices.json");
+syncPriceBook();
 app.setPath("userData", userDataPath);
 app.setPath("sessionData", sessionDataPath);
 
@@ -405,4 +405,22 @@ function seedDataFile(fileName) {
   try {
     copyFileSync(source, target);
   } catch { /* best effort */ }
+}
+
+function syncPriceBook() {
+  const source = path.join(root, "data", "prices.json");
+  const target = path.join(dataPath, "prices.json");
+  if (!existsSync(source)) return;
+  if (!existsSync(target)) {
+    seedDataFile("prices.json");
+    return;
+  }
+  try {
+    const sourceVersion = Number(JSON.parse(readFileSync(source, "utf8")).priceBookVersion) || 1;
+    const targetVersion = Number(JSON.parse(readFileSync(target, "utf8")).priceBookVersion) || 1;
+    if (targetVersion < sourceVersion) copyFileSync(source, target);
+  } catch {
+    // A damaged local price book is replaced by the shipped, validated default.
+    copyFileSync(source, target);
+  }
 }
