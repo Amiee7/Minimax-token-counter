@@ -1,0 +1,85 @@
+{
+  "name": "minimax-token-counter",
+  "version": "1.0.0",
+  "description": "Local dashboard for the MiniMax Code app's token usage and cost estimation. Reads the local sqlite.db the MiniMax daemon writes to. Plain Node HTTP server + optional Electron desktop shell.",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "node ./src/server.mjs",
+    "desktop": "node ./scripts/run-electron.mjs",
+    "package:local": "node ./scripts/package-local-electron.mjs",
+    "icon": "node ./scripts/generate-icon.mjs",
+    "check": "node --check ./src/server.mjs && node --check ./src/pricing.mjs && node --check ./src/quality.mjs && node --check ./src/settings.mjs && node --check ./src/timedCache.mjs && node --check ./src/sources/minimax.mjs && node --check ./src/sources/opencode.mjs && node --check ./electron/main.cjs && node --check ./scripts/run-electron.mjs && node --check ./scripts/package-local-electron.mjs && node --check ./public/app.js",
+    "test": "node --test ./test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "devDependencies": {
+    "electron": "42.1.0"
+  },
+  "build": {
+    "appId": "io.minimax.tokencounter",
+    "productName": "MiniMax Token Counter",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "src/**/*",
+      "public/**/*",
+      "electron/**/*",
+      "data/**/*",
+      "assets/icon.*",
+      "package.json",
+      "!**/*.test.mjs",
+      "!**/node_modules/*/{test,tests,__tests__,coverage}/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "MiniMax Token Counter"
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable.${ext}"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "assets/icon.png",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "linux": {
+      "icon": "assets/icon.png",
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Development"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MiniMax Token Counter</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div id="app" class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"><img src="/favicon.png" alt=""></div>
+          <div>
+            <h1>MiniMax Token Counter</h1>
+            <button class="path-button" id="pathButton" type="button" title="Open Settings">DB path</button>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="segmented" role="group" aria-label="Days">
+            <button type="button" data-days="7">7d</button>
+            <button type="button" data-days="14">14d</button>
+            <button type="button" data-days="30" class="active">30d</button>
+          </div>
+          <label class="field compact">
+            <span>Days</span>
+            <input id="customDays" type="number" min="1" max="3650" value="30">
+          </label>
+          <label class="field" id="sourceField">
+            <span>Source</span>
+            <select id="sourceSelect">
+              <option value="minimax">MiniMax App</option>
+              <option value="opencode">OpenCode Zen</option>
+              <option value="opencode-go">OpenCode Go</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Model</span>
+            <select id="modelFilter">
+              <option value="all">All used models</option>
+            </select>
+          </label>
+          <button id="refreshButton" class="command" type="button">Refresh</button>
+        </div>
+      </header>
+
+      <div class="tabbar">
+        <nav id="tabs" class="tabs" aria-label="Views"></nav>
+      </div>
+
+      <main id="content" class="content"></main>
+    </div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,767 @@
+{
+  "priceBookVersion": 2,
+  "updatedAt": "2026-07-19",
+  "defaultPreset": "minimax-m3",
+  "comparePresets": [
+    "gpt-5.5",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-5.6-luna",
+    "gpt-5.4",
+    "gpt-5.4-mini",
+    "claude-opus-4.8",
+    "gemini-3.1-pro-preview",
+    "gemini-3.5-flash",
+    "gemini-3-flash-preview",
+    "xai-grok-4.3",
+    "qwen3.7-max",
+    "qwen3.7-plus",
+    "qwen3.6-max-preview",
+    "qwen3.6-plus",
+    "kimi-k2.6",
+    "kimi-k2.7-code",
+    "minimax-m3",
+    "minimax-m2.7",
+    "mimo-v2.5-pro",
+    "mimo-v2.5",
+    "glm-5.1",
+    "glm-5.2",
+    "mistral-medium-3.5",
+    "mistral-large-3",
+    "deepseek-v4-flash",
+    "deepseek-v4-pro",
+    "hy3"
+  ],
+  "aliases": {
+    "qwen3.6-plus-free": "qwen3.6-plus",
+    "minimax-m3-free": "minimax-m3",
+    "mimo-v2.5-free": "mimo-v2.5",
+    "opencode-go/qwen3.6-plus-free": "opencode-go/qwen3.6-plus",
+    "opencode-go/minimax-m3-free": "opencode-go/minimax-m3",
+    "opencode-go/mimo-v2.5-free": "opencode-go/mimo-v2.5",
+    "opencode-zen/qwen3.6-plus-free": "opencode-zen/qwen3.6-plus",
+    "MiniMax-M3": "minimax-m3",
+    "MiniMax-M2.7": "minimax-m2.7",
+    "MiniMax-M2.7-highspeed": "minimax-m2.7",
+    "hy3-preview": "hy3",
+    "MiniMax-M2.5": "minimax-m2.5",
+    "minimax-m2.5-free": "minimax-m2.5"
+  },
+  "notes": {
+    "gpt-5.5": "OpenRouter model id: openai/gpt-5.5, default <=272K tier",
+    "gpt-5.6-sol": "OpenAI GPT-5.6 reference pricing; cache read is 90% discounted and cache creation is 1.25x input",
+    "gpt-5.6-terra": "OpenAI GPT-5.6 Terra reference pricing; cache read is 90% discounted and cache creation is 1.25x input",
+    "gpt-5.6-luna": "OpenAI GPT-5.6 Luna reference pricing; cache read is 90% discounted and cache creation is 1.25x input",
+    "gpt-5.4": "OpenRouter model id: openai/gpt-5.4",
+    "gpt-5.4-mini": "OpenRouter model id: openai/gpt-5.4-mini",
+    "claude-opus-4.8": "OpenRouter model id: anthropic/claude-opus-4.8",
+    "claude-opus-4.7": "Anthropic API reference pricing; 5m cache creation is 1.25x input and 1h is 2x input",
+    "claude-opus-4.6": "Anthropic API reference pricing; 5m cache creation is 1.25x input and 1h is 2x input",
+    "claude-opus-4.5": "Anthropic API reference pricing; 5m cache creation is 1.25x input and 1h is 2x input",
+    "claude-sonnet-4.6": "Anthropic API reference pricing; 5m cache creation is 1.25x input and 1h is 2x input",
+    "claude-sonnet-4.5": "Anthropic API reference pricing; 5m cache creation is 1.25x input and 1h is 2x input",
+    "claude-haiku-4.5": "Anthropic API reference pricing; 5m cache creation is 1.25x input and 1h is 2x input",
+    "gemini-3.1-pro-preview": "OpenRouter model id: google/gemini-3.1-pro-preview",
+    "gemini-3.5-flash": "OpenRouter model id: google/gemini-3.5-flash",
+    "gemini-3-flash-preview": "OpenRouter model id: google/gemini-3-flash-preview",
+    "xai-grok-4.3": "OpenRouter model id: x-ai/grok-4.3",
+    "grok-4.5": "OpenRouter model id: x-ai/grok-4.5, default <=200K tier",
+    "qwen3.7-max": "OpenRouter model id: qwen/qwen3.7-max",
+    "qwen3.7-plus": "OpenRouter model id: qwen/qwen3.7-plus",
+    "qwen3.6-max-preview": "OpenRouter model id: qwen/qwen3.6-max-preview; no cache-read price, cached=input",
+    "qwen3.6-plus": "OpenRouter model id: qwen/qwen3.6-plus; no cache-read price, cached=input",
+    "opencode-go/grok-4.5": "OpenCode Go official rates, <=200K tier",
+    "opencode-go/qwen3.6-plus": "OpenCode Go official rates, <=256K tier; higher-context rate is published separately",
+    "opencode-go/qwen3.7-max": "OpenCode Go official rates",
+    "opencode-go/qwen3.7-plus": "OpenCode Go official rates, <=256K tier; higher-context rate is published separately",
+    "opencode-go/glm-5.2": "OpenCode Go official rates",
+    "opencode-go/glm-5.1": "OpenCode Go official rates",
+    "opencode-go/kimi-k2.7-code": "OpenCode Go official rates",
+    "opencode-go/kimi-k3": "OpenCode Go official rates",
+    "opencode-go/kimi-k2.6": "OpenCode Go official rates",
+    "opencode-go/mimo-v2.5-pro": "OpenCode Go official rates",
+    "opencode-go/minimax-m2.7": "OpenCode Go official rates for MiniMax M2.7. Context 200k, output 128k.",
+    "opencode-go/minimax-m2.5": "OpenCode Go official rates for MiniMax M2.5.",
+    "opencode-go/deepseek-v4-pro": "OpenCode Go official rates",
+    "opencode-go/deepseek-v4-flash": "OpenCode Go official rates",
+    "opencode-zen/qwen3.6-plus": "OpenCode Zen official rates",
+    "opencode-zen/qwen3.6-plus-free": "OpenCode Zen historical/free alias; uses current paid Qwen3.6 Plus rate",
+    "kimi-k3": "OpenRouter model id: moonshotai/kimi-k3",
+    "kimi-k2.6": "OpenRouter model id: moonshotai/kimi-k2.6",
+    "minimax-m3": "OpenRouter model id: minimax/minimax-m3",
+    "opencode-go/minimax-m3": "OpenCode Go official rates for MiniMax M3. Context 450k, output 128k.",
+    "opencode-zen/minimax-m3-free": "OpenCode Zen historical/free alias; no current paid rate in docs",
+    "minimax-m2.7": "OpenRouter model id: minimax/minimax-m2.7",
+    "minimax-m2.5": "OpenRouter model id: minimax/minimax-m2.5",
+    "opencode-zen/minimax-m2.7": "OpenCode Zen official rates for MiniMax M2.7.",
+    "mimo-v2.5-pro": "OpenRouter model id: xiaomi/mimo-v2.5-pro",
+    "mimo-v2.5": "OpenRouter model id: xiaomi/mimo-v2.5",
+    "opencode-go/mimo-v2.5": "OpenCode Go official rates",
+    "opencode-zen/mimo-v2.5-free": "OpenCode Zen current free model",
+    "opencode-zen/big-pickle": "OpenCode Zen current free model",
+    "opencode-zen/deepseek-v4-flash-free": "OpenCode Zen current free model",
+    "opencode-zen/nemotron-3-ultra-free": "OpenCode Zen historical/free alias; no current paid rate in docs",
+    "opencode-zen/nemotron-3-super-free": "OpenCode Zen current free model",
+    "glm-5.1": "OpenRouter model id: z-ai/glm-5.1",
+    "glm-5.2": "OpenRouter model id: z-ai/glm-5.2",
+    "kimi-k2.7-code": "OpenRouter model id: moonshotai/kimi-k2.7-code",
+    "mistral-medium-3.5": "OpenRouter model id: mistralai/mistral-medium-3-5; no cache-read price, cached=input",
+    "mistral-large-3": "OpenRouter model id: mistralai/mistral-large-2512",
+    "deepseek-v4-flash": "OpenRouter model id: deepseek/deepseek-v4-flash",
+    "deepseek-v4-pro": "OpenRouter model id: deepseek/deepseek-v4-pro",
+    "hy3": "OpenRouter model id: tencent/hy3",
+    "opencode-zen/minimax-m3": "OpenCode Zen official rates for MiniMax M3.",
+    "opencode-zen/minimax-m2.5": "OpenCode Zen official rates for MiniMax M2.5; scheduled to retire on 2026-08-05.",
+    "opencode-zen/glm-5.2": "OpenCode Zen official rates",
+    "opencode-zen/glm-5.1": "OpenCode Zen official rates",
+    "opencode-zen/glm-5": "OpenCode Zen official rates",
+    "opencode-zen/kimi-k2.7-code": "OpenCode Zen official rates",
+    "opencode-zen/kimi-k2.6": "OpenCode Zen official rates",
+    "opencode-zen/kimi-k2.5": "OpenCode Zen official rates",
+    "opencode-zen/qwen3.7-max": "OpenCode Zen official rates",
+    "opencode-zen/qwen3.7-plus": "OpenCode Zen official rates",
+    "opencode-zen/qwen3.5-plus": "OpenCode Zen official rates",
+    "opencode-zen/deepseek-v4-pro": "OpenCode Zen official rates",
+    "opencode-zen/deepseek-v4-flash": "OpenCode Zen official rates",
+    "opencode-zen/claude-fable-5": "OpenCode Zen official rates",
+    "opencode-zen/claude-opus-4.8": "OpenCode Zen official rates",
+    "opencode-zen/claude-opus-4.7": "OpenCode Zen official rates",
+    "opencode-zen/claude-opus-4.6": "OpenCode Zen official rates",
+    "opencode-zen/claude-opus-4.5": "OpenCode Zen official rates",
+    "opencode-zen/claude-sonnet-5": "OpenCode Zen official rates",
+    "opencode-zen/claude-sonnet-4.6": "OpenCode Zen official rates",
+    "opencode-zen/claude-sonnet-4.5": "OpenCode Zen official rates, <=200K tier",
+    "opencode-zen/claude-haiku-4.5": "OpenCode Zen official rates",
+    "opencode-zen/gemini-3.5-flash": "OpenCode Zen official rates",
+    "opencode-zen/gemini-3.1-pro-preview": "OpenCode Zen official rates, <=200K tier",
+    "opencode-zen/gemini-3-flash-preview": "OpenCode Zen official rates",
+    "opencode-zen/grok-4.5": "OpenCode Zen official rates, <=200K tier",
+    "opencode-zen/grok-build-0.1": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.6-sol": "OpenCode Zen official rates, <=272K tier",
+    "opencode-zen/gpt-5.6-terra": "OpenCode Zen official rates, <=272K tier",
+    "opencode-zen/gpt-5.6-luna": "OpenCode Zen official rates, <=272K tier",
+    "opencode-zen/gpt-5.5": "OpenCode Zen official rates, <=272K tier",
+    "opencode-zen/gpt-5.5-pro": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.4": "OpenCode Zen official rates, <=272K tier",
+    "opencode-zen/gpt-5.4-pro": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.4-mini": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.4-nano": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.3-codespark": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.3-codex": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.2": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.2-codex": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.1": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.1-codex": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.1-codex-max": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5.1-codex-mini": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5-codex": "OpenCode Zen official rates",
+    "opencode-zen/gpt-5-nano": "OpenCode Zen official rates",
+    "opencode-zen/north-mini-code-free": "OpenCode Zen current free model"
+  },
+  "presets": {
+    "gpt-5.5": {
+      "input": 5,
+      "cached": 0.5,
+      "output": 30
+    },
+    "gpt-5.6-sol": {
+      "input": 5,
+      "cached": 0.5,
+      "cacheWrite": 6.25,
+      "output": 30
+    },
+    "gpt-5.6-terra": {
+      "input": 2.5,
+      "cached": 0.25,
+      "cacheWrite": 3.125,
+      "output": 15
+    },
+    "gpt-5.6-luna": {
+      "input": 1,
+      "cached": 0.1,
+      "cacheWrite": 1.25,
+      "output": 6
+    },
+    "gpt-5.4": {
+      "input": 2.5,
+      "cached": 0.25,
+      "output": 15
+    },
+    "gpt-5.4-mini": {
+      "input": 0.75,
+      "cached": 0.075,
+      "output": 4.5
+    },
+    "claude-opus-4.8": {
+      "input": 5,
+      "cached": 0.5,
+      "cacheWrite": 6.25,
+      "output": 25
+    },
+    "claude-opus-4.7": {
+      "input": 5,
+      "cached": 0.5,
+      "cacheWrite": 6.25,
+      "output": 25
+    },
+    "claude-opus-4.6": {
+      "input": 5,
+      "cached": 0.5,
+      "cacheWrite": 6.25,
+      "output": 25
+    },
+    "claude-opus-4.5": {
+      "input": 5,
+      "cached": 0.5,
+      "cacheWrite": 6.25,
+      "output": 25
+    },
+    "claude-sonnet-4.6": {
+      "input": 3,
+      "cached": 0.3,
+      "cacheWrite": 3.75,
+      "output": 15
+    },
+    "claude-sonnet-4.5": {
+      "input": 3,
+      "cached": 0.3,
+      "cacheWrite": 3.75,
+      "output": 15
+    },
+    "claude-haiku-4.5": {
+      "input": 1,
+      "cached": 0.1,
+      "cacheWrite": 1.25,
+      "output": 5
+    },
+    "gemini-3.1-pro-preview": {
+      "input": 2,
+      "cached": 0.2,
+      "cacheWrite": 0.375,
+      "output": 12
+    },
+    "gemini-3.5-flash": {
+      "input": 1.5,
+      "cached": 0.15,
+      "cacheWrite": 0.08333333333333334,
+      "output": 9
+    },
+    "gemini-3-flash-preview": {
+      "input": 0.5,
+      "cached": 0.05,
+      "cacheWrite": 0.08333333333333334,
+      "output": 3
+    },
+    "xai-grok-4.3": {
+      "input": 1.25,
+      "cached": 0.2,
+      "output": 2.5
+    },
+    "grok-4.5": {
+      "input": 2,
+      "cached": 0.5,
+      "output": 6
+    },
+    "qwen3.7-max": {
+      "input": 1.475,
+      "cached": 0.295,
+      "cacheWrite": 1.84375,
+      "output": 4.425
+    },
+    "qwen3.7-plus": {
+      "input": 0.32,
+      "cached": 0.064,
+      "cacheWrite": 0.4,
+      "output": 1.28
+    },
+    "qwen3.6-max-preview": {
+      "input": 1.04,
+      "cached": 1.04,
+      "cacheWrite": 1.3,
+      "output": 6.24
+    },
+    "qwen3.6-plus": {
+      "input": 0.325,
+      "cached": 0.325,
+      "cacheWrite": 0.40625,
+      "output": 1.95
+    },
+    "opencode-go/qwen3.6-plus": {
+      "input": 0.5,
+      "cached": 0.05,
+      "cacheWrite": 0.625,
+      "output": 3
+    },
+    "opencode-go/qwen3.7-max": {
+      "input": 2.5,
+      "cached": 0.5,
+      "cacheWrite": 3.125,
+      "output": 7.5
+    },
+    "opencode-go/qwen3.7-plus": {
+      "input": 0.4,
+      "cached": 0.04,
+      "cacheWrite": 0.5,
+      "output": 1.6
+    },
+    "opencode-go/grok-4.5": {
+      "input": 2,
+      "cached": 0.5,
+      "output": 6
+    },
+    "opencode-go/glm-5.2": {
+      "input": 1.4,
+      "cached": 0.26,
+      "output": 4.4
+    },
+    "opencode-go/glm-5.1": {
+      "input": 1.4,
+      "cached": 0.26,
+      "output": 4.4
+    },
+    "opencode-go/kimi-k2.7-code": {
+      "input": 0.95,
+      "cached": 0.19,
+      "output": 4
+    },
+    "opencode-go/kimi-k3": {
+      "input": 3,
+      "cached": 0.3,
+      "output": 15
+    },
+    "opencode-go/kimi-k2.6": {
+      "input": 0.95,
+      "cached": 0.16,
+      "output": 4
+    },
+    "opencode-go/mimo-v2.5-pro": {
+      "input": 0.435,
+      "cached": 0.003625,
+      "output": 0.87
+    },
+    "opencode-go/minimax-m2.7": {
+      "input": 0.3,
+      "cached": 0.06,
+      "cacheWrite": 0.375,
+      "output": 1.2
+    },
+    "opencode-go/minimax-m2.5": {
+      "input": 0.3,
+      "cached": 0.06,
+      "cacheWrite": 0.375,
+      "output": 1.2
+    },
+    "opencode-go/deepseek-v4-pro": {
+      "input": 0.435,
+      "cached": 0.003625,
+      "output": 0.87
+    },
+    "opencode-go/deepseek-v4-flash": {
+      "input": 0.14,
+      "cached": 0.0028,
+      "output": 0.28
+    },
+    "opencode-zen/qwen3.6-plus": {
+      "input": 0.5,
+      "cached": 0.05,
+      "cacheWrite": 0.625,
+      "output": 3
+    },
+    "opencode-zen/qwen3.6-plus-free": {
+      "input": 0.5,
+      "cached": 0.05,
+      "cacheWrite": 0.625,
+      "output": 3
+    },
+    "opencode-zen/minimax-m3": {
+      "input": 0.3,
+      "cached": 0.06,
+      "cacheWrite": 0,
+      "output": 1.2
+    },
+    "opencode-zen/minimax-m2.5": {
+      "input": 0.3,
+      "cached": 0.06,
+      "cacheWrite": 0,
+      "output": 1.2
+    },
+    "opencode-zen/glm-5.2": {
+      "input": 1.4,
+      "cached": 0.26,
+      "output": 4.4
+    },
+    "opencode-zen/glm-5.1": {
+      "input": 1.4,
+      "cached": 0.26,
+      "output": 4.4
+    },
+    "opencode-zen/glm-5": {
+      "input": 1,
+      "cached": 0.2,
+      "output": 3.2
+    },
+    "opencode-zen/kimi-k2.7-code": {
+      "input": 0.95,
+      "cached": 0.19,
+      "output": 4
+    },
+    "opencode-zen/kimi-k2.6": {
+      "input": 0.95,
+      "cached": 0.16,
+      "output": 4
+    },
+    "opencode-zen/kimi-k2.5": {
+      "input": 0.6,
+      "cached": 0.1,
+      "output": 3
+    },
+    "opencode-zen/qwen3.7-max": {
+      "input": 2.5,
+      "cached": 0.5,
+      "cacheWrite": 3.125,
+      "output": 7.5
+    },
+    "opencode-zen/qwen3.7-plus": {
+      "input": 0.4,
+      "cached": 0.04,
+      "cacheWrite": 0.5,
+      "output": 1.6
+    },
+    "opencode-zen/qwen3.5-plus": {
+      "input": 0.2,
+      "cached": 0.02,
+      "cacheWrite": 0.25,
+      "output": 1.2
+    },
+    "opencode-zen/deepseek-v4-pro": {
+      "input": 1.74,
+      "cached": 0.145,
+      "output": 3.48
+    },
+    "opencode-zen/deepseek-v4-flash": {
+      "input": 0.14,
+      "cached": 0.028,
+      "output": 0.28
+    },
+    "opencode-zen/claude-fable-5": {
+      "input": 10,
+      "cached": 1,
+      "cacheWrite": 12.5,
+      "output": 50
+    },
+    "opencode-zen/claude-opus-4.8": {
+      "input": 5,
+      "cached": 0.5,
+      "cacheWrite": 6.25,
+      "output": 25
+    },
+    "opencode-zen/claude-opus-4.7": {
+      "input": 5,
+      "cached": 0.5,
+      "cacheWrite": 6.25,
+      "output": 25
+    },
+    "opencode-zen/claude-opus-4.6": {
+      "input": 5,
+      "cached": 0.5,
+      "cacheWrite": 6.25,
+      "output": 25
+    },
+    "opencode-zen/claude-opus-4.5": {
+      "input": 5,
+      "cached": 0.5,
+      "cacheWrite": 6.25,
+      "output": 25
+    },
+    "opencode-zen/claude-sonnet-5": {
+      "input": 2,
+      "cached": 0.2,
+      "cacheWrite": 2.5,
+      "output": 10
+    },
+    "opencode-zen/claude-sonnet-4.6": {
+      "input": 3,
+      "cached": 0.3,
+      "cacheWrite": 3.75,
+      "output": 15
+    },
+    "opencode-zen/claude-sonnet-4.5": {
+      "input": 3,
+      "cached": 0.3,
+      "cacheWrite": 3.75,
+      "output": 15
+    },
+    "opencode-zen/claude-haiku-4.5": {
+      "input": 1,
+      "cached": 0.1,
+      "cacheWrite": 1.25,
+      "output": 5
+    },
+    "opencode-zen/gemini-3.5-flash": {
+      "input": 1.5,
+      "cached": 0.15,
+      "cacheWrite": 0.08333333333333334,
+      "output": 9
+    },
+    "opencode-zen/gemini-3.1-pro-preview": {
+      "input": 2,
+      "cached": 0.2,
+      "cacheWrite": 0.375,
+      "output": 12
+    },
+    "opencode-zen/gemini-3-flash-preview": {
+      "input": 0.5,
+      "cached": 0.05,
+      "cacheWrite": 0.08333333333333334,
+      "output": 3
+    },
+    "opencode-zen/grok-4.5": {
+      "input": 2,
+      "cached": 0.5,
+      "output": 6
+    },
+    "opencode-zen/grok-build-0.1": {
+      "input": 1,
+      "cached": 0.2,
+      "output": 2
+    },
+    "opencode-zen/gpt-5.6-sol": {
+      "input": 5,
+      "cached": 0.5,
+      "cacheWrite": 6.25,
+      "output": 30
+    },
+    "opencode-zen/gpt-5.6-terra": {
+      "input": 2.5,
+      "cached": 0.25,
+      "cacheWrite": 3.125,
+      "output": 15
+    },
+    "opencode-zen/gpt-5.6-luna": {
+      "input": 1,
+      "cached": 0.1,
+      "cacheWrite": 1.25,
+      "output": 6
+    },
+    "opencode-zen/gpt-5.5": {
+      "input": 5,
+      "cached": 0.5,
+      "output": 30
+    },
+    "opencode-zen/gpt-5.5-pro": {
+      "input": 30,
+      "cached": 3,
+      "output": 180
+    },
+    "opencode-zen/gpt-5.4": {
+      "input": 2.5,
+      "cached": 0.25,
+      "output": 15
+    },
+    "opencode-zen/gpt-5.4-pro": {
+      "input": 30,
+      "cached": 3,
+      "output": 180
+    },
+    "opencode-zen/gpt-5.4-mini": {
+      "input": 0.75,
+      "cached": 0.075,
+      "output": 4.5
+    },
+    "opencode-zen/gpt-5.4-nano": {
+      "input": 0.2,
+      "cached": 0.02,
+      "output": 1.25
+    },
+    "opencode-zen/gpt-5.3-codespark": {
+      "input": 1.75,
+      "cached": 0.175,
+      "output": 14
+    },
+    "opencode-zen/gpt-5.3-codex": {
+      "input": 1.75,
+      "cached": 0.175,
+      "output": 14
+    },
+    "opencode-zen/gpt-5.2": {
+      "input": 1.75,
+      "cached": 0.175,
+      "output": 14
+    },
+    "opencode-zen/gpt-5.2-codex": {
+      "input": 1.75,
+      "cached": 0.175,
+      "output": 14
+    },
+    "opencode-zen/gpt-5.1": {
+      "input": 1.07,
+      "cached": 0.107,
+      "output": 8.5
+    },
+    "opencode-zen/gpt-5.1-codex": {
+      "input": 1.07,
+      "cached": 0.107,
+      "output": 8.5
+    },
+    "opencode-zen/gpt-5.1-codex-max": {
+      "input": 1.25,
+      "cached": 0.125,
+      "output": 10
+    },
+    "opencode-zen/gpt-5.1-codex-mini": {
+      "input": 0.25,
+      "cached": 0.025,
+      "output": 2
+    },
+    "opencode-zen/gpt-5": {
+      "input": 1.07,
+      "cached": 0.107,
+      "output": 8.5
+    },
+    "opencode-zen/gpt-5-codex": {
+      "input": 1.07,
+      "cached": 0.107,
+      "output": 8.5
+    },
+    "opencode-zen/gpt-5-nano": {
+      "input": 0.05,
+      "cached": 0.005,
+      "output": 0.4
+    },
+    "kimi-k2.6": {
+      "input": 0.68,
+      "cached": 0.34,
+      "output": 3.41
+    },
+    "kimi-k3": {
+      "input": 3,
+      "cached": 0.3,
+      "output": 15
+    },
+    "minimax-m3": {
+      "input": 0.3,
+      "cached": 0.06,
+      "output": 1.2
+    },
+    "opencode-go/minimax-m3": {
+      "input": 0.3,
+      "cached": 0.06,
+      "cacheWrite": 0,
+      "output": 1.2
+    },
+    "opencode-zen/minimax-m3-free": {
+      "input": 0,
+      "cached": 0,
+      "cacheWrite": 0,
+      "output": 0
+    },
+    "minimax-m2.7": {
+      "input": 0.25,
+      "cached": 0.05,
+      "output": 1
+    },
+    "minimax-m2.5": {
+      "input": 0.15,
+      "cached": 0.05,
+      "output": 0.9
+    },
+    "opencode-zen/minimax-m2.7": {
+      "input": 0.3,
+      "cached": 0.06,
+      "cacheWrite": 0,
+      "output": 1.2
+    },
+    "mimo-v2.5-pro": {
+      "input": 0.435,
+      "cached": 0.0036,
+      "output": 0.87
+    },
+    "mimo-v2.5": {
+      "input": 0.14,
+      "cached": 0.0028,
+      "output": 0.28
+    },
+    "opencode-go/mimo-v2.5": {
+      "input": 0.14,
+      "cached": 0.0028,
+      "output": 0.28
+    },
+    "opencode-zen/mimo-v2.5-free": {
+      "input": 0,
+      "cached": 0,
+      "cacheWrite": 0,
+      "output": 0
+    },
+    "opencode-zen/big-pickle": {
+      "input": 0,
+      "cached": 0,
+      "cacheWrite": 0,
+      "output": 0
+    },
+    "opencode-zen/deepseek-v4-flash-free": {
+      "input": 0,
+      "cached": 0,
+      "cacheWrite": 0,
+      "output": 0
+    },
+    "opencode-zen/nemotron-3-ultra-free": {
+      "input": 0,
+      "cached": 0,
+      "cacheWrite": 0,
+      "output": 0
+    },
+    "opencode-zen/nemotron-3-super-free": {
+      "input": 0,
+      "cached": 0,
+      "cacheWrite": 0,
+      "output": 0
+    },
+    "glm-5.1": {
+      "input": 0.966,
+      "cached": 0.1794,
+      "output": 3.036
+    },
+    "glm-5.2": {
+      "input": 0.3024,
+      "cached": 0.05616,
+      "output": 0.9504
+    },
+    "kimi-k2.7-code": {
+      "input": 1,
+      "cached": 0.2,
+      "output": 4.4
+    },
+    "mistral-medium-3.5": {
+      "input": 1.5,
+      "cached": 1.5,
+      "output": 7.5
+    },
+    "mistral-large-3": {
+      "input": 0.5,
+      "cached": 0.05,
+      "output": 1.5
+    },
+    "deepseek-v4-flash": {
+      "input": 0.098,
+      "cached": 0.0196,
+      "output": 0.196
+    },
+    "deepseek-v4-pro": {
+      "input": 0.435,
+      "cached": 0.003625,
+      "output": 0.87
+    },
+    "hy3": {
+      "input": 0.2,
+      "cached": 0.05,
+      "output": 0.8
+    },
+    "opencode-zen/north-mini-code-free": {
+      "input": 0,
+      "cached": 0,
+      "cacheWrite": 0,
+      "output": 0
+    }
+  }
+}

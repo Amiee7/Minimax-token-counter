@@ -1,0 +1,57 @@
+name: Windows build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check syntax
+        run: npm run check
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build portable application
+        run: npm run package:local
+
+      - name: Create release archive
+        shell: powershell
+        run: |
+          Compress-Archive `
+            -Path dist\MiniMaxTokenCounter.exe, dist\MiniMaxTokenCounter `
+            -DestinationPath dist\MiniMaxTokenCounter-Windows-x64.zip `
+            -CompressionLevel Optimal
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: MiniMaxTokenCounter-Windows-x64
+          path: dist/MiniMaxTokenCounter-Windows-x64.zip
+          if-no-files-found: error
+
+      - name: Publish tagged release
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${{ github.ref_name }}" dist/MiniMaxTokenCounter-Windows-x64.zip --generate-notes
