@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Download Electron runtime
+        run: node ./node_modules/electron/install.js
+
       - name: Check syntax
         run: npm run check
 
