@@ -26,7 +26,7 @@ const userDataPath = path.join(appDataRoot, "electron-user-data");
 const sessionDataPath = path.join(appDataRoot, "electron-session-data");
 const logPath = path.join(dataPath, "electron-start.log");
 const windowStatePath = path.join(dataPath, "window-state.json");
-const iconPath = path.join(root, "assets", "icon.png");
+const iconPath = path.join(root, "assets", process.platform === "win32" ? "icon.ico" : "icon.png");
 
 let mainWindow = null;
 let serverProcess = null;

@@ -1,6 +1,6 @@
 {
   "name": "minimax-token-counter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Local dashboard for the MiniMax Code app's token usage and cost estimation. Reads the local sqlite.db the MiniMax daemon writes to. Plain Node HTTP server + optional Electron desktop shell.",
   "private": true,
   "type": "module",
