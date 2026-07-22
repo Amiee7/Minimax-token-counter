@@ -1,6 +1,6 @@
 {
   "name": "minimax-token-counter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Local dashboard for the MiniMax Code app's token usage and cost estimation. Reads the local sqlite.db the MiniMax daemon writes to. Plain Node HTTP server + optional Electron desktop shell.",
   "private": true,
   "type": "module",
@@ -9,7 +9,6 @@
     "start": "node ./src/server.mjs",
     "desktop": "node ./scripts/run-electron.mjs",
     "package:local": "node ./scripts/package-local-electron.mjs",
-    "icon": "node ./scripts/generate-icon.mjs",
     "check": "node --check ./src/server.mjs && node --check ./src/pricing.mjs && node --check ./src/quality.mjs && node --check ./src/settings.mjs && node --check ./src/timedCache.mjs && node --check ./src/sources/minimax.mjs && node --check ./src/sources/opencode.mjs && node --check ./electron/main.cjs && node --check ./scripts/run-electron.mjs && node --check ./scripts/package-local-electron.mjs && node --check ./public/app.js",
     "test": "node --test ./test/*.test.mjs"
   },
